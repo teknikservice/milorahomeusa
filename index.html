@@ -10,9 +10,8 @@
   3. Any spec you leave out simply won't be shown. Nothing looks empty.
   4. Save the file and re-upload it to your host (drag & drop on Netlify).
 
-  IMPORTANT: image links currently point to your old Wix media library.
-  They will stop working when the Wix subscription ends. Replace them
-  with your own hosted images (an /images folder next to this file).
+  IMPORTANT: fabric images live in the /images folder next to this file.
+  All images should be JPG. Name them to match the image: field below.
   ─────────────────────────────────────────────────────────────
 -->
 <meta charset="UTF-8">
@@ -64,19 +63,19 @@ button{font:inherit;background:none;border:none;cursor:pointer;color:inherit}
 /* ── nav ── */
 header{
   position:fixed;inset:0 0 auto 0;z-index:10;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:18px var(--pad);
+  display:flex;flex-direction:column;align-items:center;
+  padding:16px var(--pad) 12px;
   mix-blend-mode:normal;
 }
 header.solid{background:var(--paper);border-bottom:1px solid var(--line)}
 .wordmark{display:block;line-height:0}
-.wordmark img{height:42px;width:auto}
+.wordmark img{height:46px;width:auto}
 .wordmark .lg-white{display:none}
 header.on-image .lg-black{display:none}
 header.on-image .lg-white{display:block}
-@media (max-width:640px){.wordmark img{height:34px}}
-nav{display:flex;gap:clamp(18px,3vw,40px)}
-nav a{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding:6px 0;border-bottom:1px solid transparent}
+@media (max-width:640px){.wordmark img{height:36px}}
+nav{display:flex;gap:clamp(22px,4vw,48px);margin-top:8px}
+nav a{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding:4px 0;border-bottom:1px solid transparent}
 nav a:hover,nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ink)}
 header.on-image .wordmark, header.on-image nav a{color:var(--white)}
 header.on-image nav a:hover, header.on-image nav a[aria-current="page"]{border-bottom-color:var(--white)}
@@ -104,13 +103,14 @@ main{min-height:100vh}
 .hero-cta:hover span{transform:translateX(5px)}
 /* vertical selvage on hero edge */
 .hero-selvage{
-  position:absolute;z-index:2;top:0;bottom:0;right:clamp(10px,2vw,26px);
+  position:absolute;z-index:2;top:0;bottom:0;right:clamp(12px,2.5vw,32px);
   display:flex;align-items:center;justify-content:center;
   writing-mode:vertical-rl;
-  font-family:var(--mono);font-size:10px;letter-spacing:.34em;text-transform:uppercase;
-  color:rgba(251,250,247,.65);
-  border-left:1px solid rgba(251,250,247,.22);
-  padding-left:10px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.38em;text-transform:uppercase;
+  color:rgba(251,250,247,.88);
+  text-shadow:0 1px 8px rgba(0,0,0,.4);
+  border-left:1px solid rgba(251,250,247,.35);
+  padding-left:12px;
 }
 @media (max-width:640px){.hero-selvage{display:none}}
 
@@ -165,11 +165,10 @@ main{min-height:100vh}
 .contact-list a:hover{border-bottom:1px solid var(--ink)}
 
 /* ── footer ── */
-footer{margin-top:80px;padding:0 var(--pad) 34px}
+footer{margin-top:40px;padding:0 var(--pad) 18px}
 footer .inner{max-width:1360px;margin:0 auto}
-footer .selvage{justify-content:space-between}
-footer .selvage::before{flex:0 0 34px}
-footer .legal{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--muted);margin-top:12px;text-transform:uppercase}
+footer .foot-line{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 24px;border-top:1px solid var(--line);padding-top:14px}
+footer .legal{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
 </style>
 </head>
 <body>
@@ -186,12 +185,10 @@ footer .legal{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:
 
 <footer>
   <div class="inner">
-    <div class="selvage">
-      <span class="sv-name">Milora Home</span>
-      <span class="sv-code">Chicago · IL</span>
-      <span class="sv-code">To the Trade</span>
+    <div class="foot-line">
+      <span class="legal">© 2026 Milora Home Exclusive</span>
+      <span class="legal">Premium Upholstery Fabrics · Chicago, IL</span>
     </div>
-    <p class="legal">© 2026 Milora Home Exclusive · All rights reserved</p>
   </div>
 </footer>
 
@@ -204,105 +201,115 @@ footer .legal{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:
    ═══════════════════════════════════════════════════════════ */
 const FABRICS = [
   {
-    id: "botanical-001-3733",
-    name: "Botanical Archive",
+    id: "botanical-archive-001-3733",
+    name: "Botanical Archive 001-3733",
     code: "001-3733",
     collection: "Botanical Archive",
-    image: "https://static.wixstatic.com/media/583c11_3999d1c62d0e432b8bed62285ca7b687~mv2.jpg/v1/fill/w_1400,h_1200,al_c,q_85/f.jpg",
-    specs: { /* SAMPLE SPECS — replace with real values */
-      composition: "62% Cotton, 38% Polyester",
-      width: "55 in / 140 cm",
-      weight: "540 g/lm",
-      abrasion: "40,000 double rubs (Martindale)",
-      usage: "Upholstery · Drapery · Pillows"
-    }
+    image: "images/botanical-archive-001-3733.jpg",
+    specs: {}
   },
   {
-    id: "botanical-002-3733",
-    name: "Botanical Archive",
+    id: "botanical-archive-002-3733",
+    name: "Botanical Archive 002-3733",
     code: "002-3733",
     collection: "Botanical Archive",
-    image: "https://static.wixstatic.com/media/583c11_3ae6378ddb7a46e08db254b2bb27b5a9~mv2.png/v1/fill/w_1400,h_1200,al_c,q_85/f.png",
+    image: "images/botanical-archive-002-3733.jpg",
     specs: {}
   },
   {
-    id: "botanical-003-3733",
-    name: "Botanical Archive",
-    code: "003-3733",
-    collection: "Botanical Archive",
-    image: "https://static.wixstatic.com/media/583c11_86ad43d6789c4ff7a16da974bb44a273~mv2.png/v1/fill/w_1400,h_1200,al_c,q_85/f.png",
+    id: "jungle-01-mustard",
+    name: "Jungle 01 Mustard",
+    code: "01 Mustard",
+    collection: "Jungle",
+    image: "images/jungle-01-mustard.jpg",
     specs: {}
   },
   {
-    id: "botanical-002-3736",
-    name: "Botanical Archive",
-    code: "002-3736",
-    collection: "Botanical Archive",
-    image: "https://static.wixstatic.com/media/583c11_098d03e8b39f458bb21e4446f514e6e8~mv2.png/v1/fill/w_1400,h_1200,al_c,q_85/f.png",
+    id: "jungle-01-mint",
+    name: "Jungle 01 Mint",
+    code: "01 Mint",
+    collection: "Jungle",
+    image: "images/jungle-01-mint.jpg",
     specs: {}
   },
   {
-    id: "jungle-ml-001",
-    name: "Jungle",
-    code: "ML 001",
-    collection: "Jungle Series",
-    image: "https://static.wixstatic.com/media/583c11_f563103377dd468fa604aca344920f32~mv2.png/v1/fill/w_1400,h_1200,al_c,q_85/f.png",
+    id: "jungle-02",
+    name: "Jungle 02",
+    code: "02",
+    collection: "Jungle",
+    image: "images/jungle-02.jpg",
     specs: {}
   },
   {
-    id: "jungle-ml-002",
-    name: "Jungle",
-    code: "ML 002",
-    collection: "Jungle Series",
-    image: "https://static.wixstatic.com/media/583c11_380db71f799b4c60a52980a53f7b9ba1~mv2.png/v1/fill/w_1400,h_1200,al_c,q_85/f.png",
-    specs: {}
-  },
-  {
-    id: "jungle-ml-003",
-    name: "Jungle",
-    code: "ML 003",
-    collection: "Jungle Series",
-    image: "https://static.wixstatic.com/media/583c11_36427c18862b43be9b516f2bdbe43896~mv2.png/v1/fill/w_1400,h_1200,al_c,q_85/f.png",
-    specs: {}
-  },
-  {
-    id: "jungle-ml-3395-kf",
-    name: "Jungle",
+    id: "jungle-04-ml-3395-kf",
+    name: "Jungle 04 ML 3395 KF",
     code: "ML 3395 KF",
-    collection: "Jungle Series",
-    image: "https://static.wixstatic.com/media/583c11_6d27fdb91bbb49de8fbfa3dcb000f572~mv2.png/v1/fill/w_1400,h_1200,al_c,q_85/f.png",
+    collection: "Jungle",
+    image: "images/jungle-04-ml-3395-kf.jpg",
     specs: {}
   },
   {
-    id: "jungle-ml-005",
-    name: "Jungle",
-    code: "ML 005",
-    collection: "Jungle Series",
-    image: "https://static.wixstatic.com/media/583c11_35e3eaece7114716a2422188a30a5530~mv2.jpg/v1/fill/w_1400,h_1200,al_c,q_85/f.jpg",
+    id: "jungle-05-slvr-tiger",
+    name: "Jungle 05 SLVR Tiger",
+    code: "05 SLVR Tiger",
+    collection: "Jungle",
+    image: "images/jungle-05-slvr-tiger.jpg",
     specs: {}
   },
   {
-    id: "zebra-3495",
+    id: "zebra",
     name: "Zebra",
-    code: "3495",
-    collection: "High-End Jacquards",
-    image: "https://static.wixstatic.com/media/583c11_baf47816bd4145bba1d2a8c7625c5c34~mv2.png/v1/fill/w_1400,h_1200,al_c,q_85/f.png",
+    code: "Zebra",
+    collection: "Jacquards",
+    image: "images/zebra.jpg",
     specs: {}
   },
   {
-    id: "dragon-3496",
+    id: "dragon",
     name: "Dragon",
-    code: "3496",
-    collection: "High-End Jacquards",
-    image: "https://static.wixstatic.com/media/583c11_0459c8c53cae4736ae1ff86052de7df9~mv2.png/v1/fill/w_1400,h_1200,al_c,q_85/f.png",
+    code: "Dragon",
+    collection: "Jacquards",
+    image: "images/dragon.jpg",
     specs: {}
   },
   {
-    id: "reef-3498",
+    id: "reef",
     name: "Reef",
-    code: "3498",
-    collection: "High-End Jacquards",
-    image: "https://static.wixstatic.com/media/583c11_1e93e951f6ac4bd8850c7227f2720a5c~mv2.png/v1/fill/w_1400,h_1200,al_c,q_85/f.png",
+    code: "Reef",
+    collection: "Jacquards",
+    image: "images/reef.jpg",
+    specs: {}
+  },
+  {
+    id: "leopard-vrs",
+    name: "Leopard VRS",
+    code: "VRS",
+    collection: "Jacquards",
+    image: "images/leopard-vrs.jpg",
+    specs: {}
+  },
+  {
+    id: "hm-029",
+    name: "HM 029",
+    code: "029",
+    collection: "HM",
+    image: "images/hm-029.jpg",
+    specs: {}
+  },
+  {
+    id: "hm-030",
+    name: "HM 030",
+    code: "030",
+    collection: "HM",
+    image: "images/hm-030.jpg",
+    specs: {}
+  },
+  {
+    id: "hm-043",
+    name: "HM 043",
+    code: "043",
+    collection: "HM",
+    image: "images/hm-043.jpg",
     specs: {}
   }
 ];
