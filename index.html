@@ -1,100 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Milora Home Exclusive | Coming Soon</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2710%27 fill=%27%232FA0D8%27/%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Archivo:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--paper:#F1EFEA;--ink:#191714;--muted:#6E6961;--line:#D8D3CA;--white:#FBFAF7}
-
-body{background:var(--ink);color:var(--white);font-family:'Archivo',system-ui,sans-serif;min-height:100svh;overflow:hidden}
-
-/* woven thread background */
-.threads{position:fixed;inset:0;z-index:0;opacity:.07}
-.threads::before,.threads::after{content:"";position:absolute;inset:0}
-.threads::before{
-  background:repeating-linear-gradient(90deg,var(--white) 0 1px,transparent 1px 28px);
-  animation:weave-h 40s linear infinite;
-}
-.threads::after{
-  background:repeating-linear-gradient(0deg,var(--white) 0 1px,transparent 1px 28px);
-  animation:weave-v 50s linear infinite;
-}
-@keyframes weave-h{from{transform:translateX(0)}to{transform:translateX(28px)}}
-@keyframes weave-v{from{transform:translateY(0)}to{transform:translateY(28px)}}
-
-/* gradient overlay */
-.glow{position:fixed;inset:0;z-index:1;
-  background:radial-gradient(ellipse 80% 60% at 50% 45%,rgba(47,160,216,.06),transparent 70%),
-             radial-gradient(ellipse 50% 40% at 30% 70%,rgba(185,179,167,.04),transparent)}
-
-/* content */
-.scene{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100svh;padding:40px 24px;text-align:center}
-
-.logo{height:56px;width:auto;margin-bottom:48px;opacity:0;animation:fade-down .8s cubic-bezier(.2,.7,.2,1) .2s forwards}
-@media(max-width:640px){.logo{height:42px;margin-bottom:36px}}
-
-.divider{display:flex;align-items:center;gap:16px;margin-bottom:42px;opacity:0;animation:fade-down .8s cubic-bezier(.2,.7,.2,1) .4s forwards}
-.divider span{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:rgba(251,250,247,.4)}
-.divider::before,.divider::after{content:"";width:clamp(30px,8vw,80px);height:1px;background:linear-gradient(90deg,transparent,rgba(251,250,247,.25))}
-.divider::after{background:linear-gradient(90deg,rgba(251,250,247,.25),transparent)}
-
-h1{font-family:'Marcellus',serif;font-weight:400;font-size:clamp(32px,5.5vw,64px);line-height:1.12;letter-spacing:.02em;max-width:14ch;opacity:0;animation:fade-up 1s cubic-bezier(.2,.7,.2,1) .6s forwards}
-
-.sub{margin-top:20px;font-weight:300;font-size:clamp(14px,1.4vw,17px);color:rgba(251,250,247,.6);max-width:42ch;line-height:1.7;opacity:0;animation:fade-up .8s cubic-bezier(.2,.7,.2,1) .85s forwards}
-
-.contact-btn{display:inline-flex;align-items:center;gap:10px;margin-top:40px;padding:16px 36px;border:1px solid rgba(251,250,247,.2);color:var(--white);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:all .35s ease;opacity:0;animation:fade-up .8s cubic-bezier(.2,.7,.2,1) 1.05s forwards}
-.contact-btn:hover{background:var(--white);color:var(--ink);border-color:var(--white)}
-.contact-btn span{transition:transform .25s}.contact-btn:hover span{transform:translateX(4px)}
-
-/* social links */
-.socials{display:flex;gap:28px;margin-top:32px;opacity:0;animation:fade-up .8s cubic-bezier(.2,.7,.2,1) 1.25s forwards}
-.socials a{display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(251,250,247,.4);text-decoration:none;transition:color .3s}
-.socials a:hover{color:rgba(251,250,247,.9)}
-.socials svg{width:16px;height:16px;fill:currentColor}
-
-/* bottom selvage */
-.selvage{position:fixed;bottom:0;left:0;right:0;z-index:3;
-  display:flex;align-items:center;justify-content:center;gap:16px;
-  padding:16px 24px;
-  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.3em;text-transform:uppercase;
-  color:rgba(251,250,247,.3)}
-.selvage::before,.selvage::after{content:"";flex:1;max-width:120px;height:6px;
-  background:repeating-linear-gradient(90deg,rgba(251,250,247,.15) 0 1px,transparent 1px 6px)}
-
-/* floating dot */
-.dot{position:fixed;z-index:2;width:8px;height:8px;border-radius:50%;background:#2FA0D8;
-  top:20%;right:15%;opacity:0;animation:pulse 4s ease-in-out 1.5s infinite}
-.dot:nth-child(2){top:70%;right:80%;animation-delay:2.5s;width:6px;height:6px;opacity:0}
-@keyframes pulse{0%,100%{opacity:0;transform:scale(.8)}50%{opacity:.4;transform:scale(1)}}
-
-@keyframes fade-down{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:none}}
-@keyframes fade-up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-</style>
+  <meta charset="UTF-8">
+  <title>Milora Home Exclusive</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="threads"></div>
-<div class="glow"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <img src="images/logo.png" alt="Milora Home" class="nav-logo">
+    </a>
+    <div class="nav-links">
+      <a href="products.html">Collection</a>
+      <a href="about.html">About</a>
+      <a href="fairs.html">Trade Shows</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
 
-<div class="scene">
-  <img class="logo" src="data:image/png;base64,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" alt="Milora Home Exclusive">
-  <div class="divider"><span>Bursa · Chicago</span></div>
-  <h1>Something beautiful is being woven.</h1>
-  <p class="sub">Our new collection is coming online soon. Premium upholstery and decorative fabrics, exclusively for the trade.</p>
-  <a class="contact-btn" href="mailto:berkay@milorahome.com">Get in touch <span>→</span></a>
-  <div class="socials">
-    <a href="https://www.instagram.com/milora_home_exclusive/" rel="noopener" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a>
-    <a href="https://www.pinterest.com/milorahomeusa/" rel="noopener" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>Pinterest</a>
-  </div>
-</div>
+  <!-- Hero Section -->
+  <header class="hero">
+    <img src="images/home.png" alt="Premium Woven Fabrics" class="hero-img">
+    <div class="hero-content fade-up">
+      <h1>Premium Woven Jacquards</h1>
+      <p>Signature collections woven exclusively in Turkey. Designed for interior designers, furniture manufacturers, and hospitality projects globally.</p>
+      <a href="products.html" class="btn-primary">Discover our fabrics</a>
+    </div>
+  </header>
 
-<div class="selvage">Milora Home Exclusive</div>
+  <!-- Unique Selling Propositions -->
+  <section class="usps fade-up">
+    <div class="usp-item fade-up">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 16px; display: block; color: var(--fg);"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+      <h3>Global Delivery</h3>
+      <p>Efficient shipping via specialized logistics partners.</p>
+    </div>
+    <div class="usp-item fade-up">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 16px; display: block; color: var(--fg);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <h3>Low Minimums</h3>
+      <p>1 roll minimum on all running stock items.</p>
+    </div>
+    <div class="usp-item fade-up">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 16px; display: block; color: var(--fg);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <h3>Contract Grade</h3>
+      <p>High-durability specs available for hospitality.</p>
+    </div>
+    <div class="usp-item fade-up">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 16px; display: block; color: var(--fg);"><polyline points="20 6 9 17 4 12"/></svg>
+      <h3>Premium Quality</h3>
+      <p>Woven exclusively with high-grade yarns in Bursa.</p>
+    </div>
+  </section>
+
+  <!-- Explore Our Fabrics -->
+  <section class="featured fade-up" style="text-align: center;">
+    <h2 class="section-title">Explore Our Fabrics</h2>
+    <div class="showcase-grid">
+      <div class="showcase-img">
+        <img src="images/botanical-archive-002-3733.jpg" alt="Botanical Jacquard">
+      </div>
+      <div class="showcase-img">
+        <img src="images/hm-030.jpg" alt="Plain Texture">
+      </div>
+      <div class="showcase-img">
+        <img src="images/tiger.jpg" alt="Tiger Pattern Jacquard">
+      </div>
+      <div class="showcase-img">
+        <img src="images/jungle-02.jpg" alt="Jungle Pattern Jacquard">
+      </div>
+    </div>
+    <div>
+      <a href="products.html" class="btn-primary" style="display: inline-block;">View Full Collection</a>
+    </div>
+  </section>
+
+          <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-col" style="display: flex; align-items: center;">
+        <img src="images/logo.png" alt="Milora Home" style="width: 100%; max-width: 220px; height: auto;">
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="products.html">Collection</a>
+        <a href="about.html">About Us</a>
+        <a href="fairs.html">Trade Shows</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Milora Home Exclusive.
+    </div>
+  </footer>
 
 </body>
 </html>
+
+
+
+
